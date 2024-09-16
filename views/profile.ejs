@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head') %>
+    <title>Profile</title>
+  </head>
+  <body>
+    <%- include('./partials/nav') %>
+
+    
+    <% /* %>
+      <h1><%= locals.user._id %></h1>
+      <% */ %>
+
+      <h1><%= locals.user.fullName %></h1>
+
+      <h1><%= locals.user.email %></h1>
+
+      <% /* %>
+      <h1><%= locals.user.profileImageURL %></h1>
+      <% */ %>
+      
+
+      <% /* %>
+      <h1><%= user.profileImageURL %></h1>
+      <% */ %>
+
+      <img src="<%= user.profileImageURL %>" alt="No Image Found">
+
+
+      <div class="qr-code">
+        <img src="" alt="qr-code" style="width: 170px;">
+      </div>
+
+      <script>
+
+        qrImg = document.querySelector(".qr-code img");
+
+        let qrValue = window.location.href;
+
+        qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
+      </script>
+
+    
+
+    <%- include('./partials/scripts') %>
+  </body>
+</html>
